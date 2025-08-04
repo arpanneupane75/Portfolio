@@ -113,8 +113,8 @@ portfolio-website/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/ankitjhagithub21/mern-portfolio.git
-   cd portfolio-website
+   git clone https://github.com/arpanneupane75/Portfolio.git
+   cd portfolio
    ```
 
 2. **Install backend dependencies**
@@ -160,7 +160,7 @@ portfolio-website/
 
 7. **Access the application**
    - Frontend: http://localhost:5173
-   - Backend API: http://localhost:5000
+   - Backend API: http://localhost:5001
    - Admin Panel: http://localhost:5173/admin/dashboard
 
 ## 📱 Usage

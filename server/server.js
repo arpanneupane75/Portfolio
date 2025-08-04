@@ -90,7 +90,6 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
-
 // Middleware to verify JWT token
 const verifyToken = (req, res, next) => {
   const authHeader = req.headers.authorization;

@@ -160,7 +160,7 @@ portfolio-website/
 
 7. **Access the application**
    - Frontend: http://localhost:5173
-   - Backend API: http://localhost:5001
+   - Backend API: https://portfolio-ekvt.onrender.com
    - Admin Panel: http://localhost:5173/admin/dashboard
 
 ## 📱 Usage

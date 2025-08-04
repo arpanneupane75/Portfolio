@@ -43,7 +43,7 @@ const EditProject = () => {
     const fetchProject = async () => {
       const token = localStorage.getItem("token");
       try {
-        const res = await axios.get(`https://portfolio-ekvt.onrender.com/api/projects/${id}`, {
+        const res = await axios.get(`https://portfolio-ekvt.onrender.com//api/projects/${id}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         const project = res.data;
@@ -155,7 +155,7 @@ const EditProject = () => {
     };
 
     try {
-      await axios.put(`https://portfolio-ekvt.onrender.com/api/projects/${id}`, payload, {
+      await axios.put(`https://portfolio-ekvt.onrender.com//api/projects/${id}`, payload, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -502,7 +502,7 @@ const EditProject = () => {
               (async () => {
                 const token = localStorage.getItem("token");
                 try {
-                  const res = await axios.get(`https://portfolio-ekvt.onrender.com/api/projects/${id}`, {
+                  const res = await axios.get(`https://portfolio-ekvt.onrender.com//api/projects/${id}`, {
                     headers: { Authorization: `Bearer ${token}` },
                   });
                   const project = res.data;

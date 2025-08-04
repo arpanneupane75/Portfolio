@@ -1,7 +1,7 @@
 import { createContext, useContext, useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 
-// Set axios to send credentials (cookies, headers) with requests
+// Set axios to send credentials (cookies, headers) with requests if needed
 axios.defaults.withCredentials = true;
 
 const AuthContext = createContext();
@@ -15,6 +15,7 @@ export const AuthProvider = ({ children }) => {
   // Fetch current logged-in user info using token
   const fetchUser = useCallback(async () => {
     try {
+      // Fixed double slash in URL here
       const response = await axios.get('https://portfolio-ekvt.onrender.com/api/auth/user');
       setUser(response.data.user);
     } catch (error) {
@@ -50,6 +51,9 @@ export const AuthProvider = ({ children }) => {
       setUser(user);
       return { success: true };
     } catch (error) {
+      // Added console.error for better debugging
+      console.error('Login error response:', error.response?.data);
+
       return {
         success: false,
         message: error.response?.data?.message || 'Login failed',

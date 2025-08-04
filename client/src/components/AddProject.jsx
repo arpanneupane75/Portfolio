@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import axios from "axios";
-
+import process from "process";
 const categories = [
   "Web Development",
   "Mobile App",
@@ -30,6 +30,7 @@ const AddProject = () => {
   const [validated, setValidated] = useState(false);
 
   const imagePreviewRef = useRef(null);
+  const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
   const handleChange = (e) => {
     const { name, value } = e.target;

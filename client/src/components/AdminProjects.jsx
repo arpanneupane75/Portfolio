@@ -130,7 +130,7 @@ const AdminProjects = () => {
 
     const token = localStorage.getItem("token");
     try {
-      await axios.delete(`https://portfolio-ekvt.onrender.com/api/projects/${id}`, {
+      await axios.delete(`https://portfolio-ekvt.onrender.com//api/projects/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setProjects((prev) => prev.filter((project) => project._id !== id));

@@ -15,7 +15,7 @@ export const AuthProvider = ({ children }) => {
   // Fetch current logged-in user info using token
   const fetchUser = useCallback(async () => {
     try {
-      const response = await axios.get('http://localhost:5001/api/auth/user');
+      const response = await axios.get('https://portfolio-ekvt.onrender.com/api/auth/user');
       setUser(response.data.user);
     } catch (error) {
       logout(); // Token invalid or expired, clear auth state
@@ -39,7 +39,7 @@ export const AuthProvider = ({ children }) => {
   const login = async (email, password) => {
     try {
       const response = await axios.post(
-        'http://localhost:5001/api/auth/login',
+        'https://portfolio-ekvt.onrender.com/api/auth/login',
         { email, password }
       );
 

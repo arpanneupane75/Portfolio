@@ -140,7 +140,7 @@ portfolio-website/
    JWT_SECRET=your_super_secret_jwt_key_here
    
    # Server Configuration  
-   PORT=5000
+   PORT=5001
  
 
 

@@ -20,15 +20,21 @@ const dummyProjects = [
   },
   {
     _id: "2",
-    title: "Chat App",
-    description: "Real-time chat application with authentication and rooms.",
-    imageUrl: "https://via.placeholder.com/400x180.png?text=Chat+App+Image",
-    liveUrl: "https://chatapp.example.com",
-    githubUrl: "https://github.com/arpanneupane75/chat-app",
-    technologies: ["React", "Socket.io", "Express"],
-    features: ["User authentication", "Multiple chat rooms", "Real-time messaging"],
-  },
-];
+    title: "Medical Chatbot",
+    description: "An intelligent medical chatbot that assists users in identifying symptoms and potential health conditions using AI/ML models.",
+    imageUrl: "client/public/Medibot.png",
+    liveUrl: "https://medicalchatbot.example.com", // Replace with actual live URL if available
+    githubUrl: "https://github.com/arpanneupane75/Medical-chatbot",
+    technologies: ["Python", "Streamlit", "LangChain", "OpenAI", "Pandas"],
+    features: [
+      "Natural language symptom analysis",
+      "AI-driven health condition suggestions",
+      "Interactive and user-friendly UI",
+      "Streamlit-based real-time interaction",
+      "Supports large-scale medical data processing"
+    ]
+  }
+]
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);
@@ -37,7 +43,7 @@ const Projects = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const res = await axios.get("https://portfolio-ekvt.onrender.com/api/projects", {
+        const res = await axios.get("http://localhost:5001/api/projects", {
           withCredentials: true,
         });
 

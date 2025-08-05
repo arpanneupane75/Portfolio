@@ -39,7 +39,7 @@ const AdminProjects = () => {
     setError("");
     const token = localStorage.getItem("token");
     try {
-      const res = await axios.get("https://portfolio-ekvt.onrender.com/api/projects", {
+      const res = await axios.get("http://localhost:5001/api/projects", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setProjects(res.data);
@@ -130,7 +130,7 @@ const AdminProjects = () => {
 
     const token = localStorage.getItem("token");
     try {
-      await axios.delete(`https://portfolio-ekvt.onrender.com//api/projects/${id}`, {
+      await axios.delete(`http://localhost:5001//api/projects/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setProjects((prev) => prev.filter((project) => project._id !== id));

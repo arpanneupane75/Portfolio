@@ -35,7 +35,7 @@ const ContactForm = () => {
 
     setLoading(true);
     try {
-      const res = await axios.post("http://localhost:5001//api/contact", formData);
+      const res = await axios.post("http://localhost:5001/api/contact", formData);
       if (res.status === 201) {
         setStatus({ type: "success", message: "✅ Message sent successfully!" });
         setFormData({ name: "", email: "", message: "" });

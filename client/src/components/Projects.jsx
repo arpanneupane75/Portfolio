@@ -9,7 +9,7 @@ const dummyProjects = [
     title: "Portfolio Website",
     description: "A personal portfolio website to showcase projects and skills.",
     imageUrl: "https://via.placeholder.com/400x180.png?text=Portfolio+Image",
-    liveUrl: "https://myportfolio.example.com",
+    liveUrl: "https://portfolio-arpan-neupanes-projects-676ecedb.vercel.app/",
     githubUrl: "https://github.com/arpanneupane75/portfolio",
     technologies: ["React", "Bootstrap", "Node.js"],
     features: [

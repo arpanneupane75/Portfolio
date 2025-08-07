@@ -53,7 +53,7 @@ const Hero = () => {
           {/* Buttons */}
           <div className="hero-buttons d-flex justify-content-center justify-content-md-start gap-3 flex-wrap">
             <a
-              href="/CV_Arpan.pdf"
+              href="/Updated_CV.pdf"
               className="btn btn-primary btn-lg shadow-sm hero-btn"
               download
               target="_blank"

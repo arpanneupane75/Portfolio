@@ -33,7 +33,7 @@ const Footer = () => {
               <li><a href="#contact" className="text-decoration-none text-muted">Contact</a></li>
               <li>
                 <a 
-                  href="/CV_Arpan.pdf" 
+                  href="/Final_CV_2.pdf" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="text-decoration-none text-muted"

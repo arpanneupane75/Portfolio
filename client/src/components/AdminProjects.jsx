@@ -39,7 +39,7 @@ const AdminProjects = () => {
     setError("");
     const token = localStorage.getItem("token");
     try {
-      const res = await axios.get("http://localhost:5001/api/projects", {
+      const res = await axios.get("https://portfolio-r436.onrender.com/api/projects", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setProjects(res.data);

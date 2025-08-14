@@ -378,18 +378,22 @@ router.post('/login', async (req, res) => {
     if (!isMatch)
       return res.status(400).json({ message: 'Invalid credentials.' });
 
-    const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, { expiresIn: '7d' });
+    const token = jwt.sign(
+      { userId: user._id },
+      process.env.JWT_SECRET,
+      { expiresIn: '7d' }
+    );
 
     res.json({
-  token,
-  user: { id: user._id, email: user.email, isAdmin: user.isAdmin }
-});
+      token,
+      user: { id: user._id, email: user.email, isAdmin: user.isAdmin }
     });
   } catch (error) {
     console.error('Login error:', error);
     res.status(500).json({ message: 'Server error' });
   }
 });
+
 
 // GET /api/auth/user - get current user info (protected)
 router.get('/user', auth, (req, res) => {

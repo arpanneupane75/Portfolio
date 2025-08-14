@@ -11,7 +11,7 @@
 
 // // // ✅ Proper CORS setup
 // // app.use(cors({
-// //   origin: 'http://localhost:5173',
+// //   origin: 'portfolio-tjxnhnyee-arpan-neupanes-projects-676ecedb.vercel.app',
 // //   credentials: true,
 // // }));
 

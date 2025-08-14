@@ -85,9 +85,13 @@ app.use(express.json());
 
 // CORS setup
 const corsOptions = {
-  origin: ['http://localhost:5173'],
+  origin: [
+    'https://portfolio-tjxnhnyee-arpan-neupanes-projects-676ecedb.vercel.app',
+    'https://www.arpanneupane75.com.np'
+  ],
   credentials: true,
 };
+
 app.use(cors(corsOptions));
 
 // Middleware to verify JWT token

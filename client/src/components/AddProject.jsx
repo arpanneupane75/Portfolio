@@ -109,7 +109,7 @@ const AddProject = () => {
     };
 
     try {
-      await axios.post("http://localhost:5001/api/projects", payload, {
+      await axios.post("https://portfolio-r436.onrender.com/api/projects", payload, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setStatus({ message: "Project added successfully!", type: "success" });

@@ -178,7 +178,7 @@
 import { useEffect, useState } from "react";
 import { Github, Globe } from "lucide-react";
 import axios from "axios";
-import "../App.css"; // Assuming you have a CSS file for styling
+import "../App.css";
 
 const dummyProjects = [
   {
@@ -196,7 +196,7 @@ const dummyProjects = [
     title: "Medical Chatbot",
     description: "An intelligent medical chatbot that assists users in identifying symptoms and potential health conditions using AI/ML models.",
     imageUrl: "client/public/Medibot.png",
-    liveUrl: "https://medicalchatbot.example.com", // Replace with actual live URL if available
+    liveUrl: "https://medicalchatbot.example.com",
     githubUrl: "https://github.com/arpanneupane75/Medical-chatbot",
     technologies: ["Python", "Streamlit", "LangChain", "OpenAI", "Pandas"],
     features: [
@@ -216,38 +216,26 @@ const Projects = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const token = localStorage.getItem("token"); // Get JWT from localStorage
+        const token = localStorage.getItem("token");
         if (!token) {
-          console.warn("No token found, using dummy projects");
           setProjects(dummyProjects);
           return;
         }
-
         const res = await axios.get("https://portfolio-r436.onrender.com/api/projects", {
-          headers: {
-            Authorization: `Bearer ${token}`, // Send JWT in header
-          },
+          headers: { Authorization: `Bearer ${token}` },
         });
-
-        if (Array.isArray(res.data) && res.data.length > 0) {
-          setProjects(res.data);
-        } else {
-          setProjects(dummyProjects); // fallback if API returns empty array
-        }
+        setProjects(Array.isArray(res.data) && res.data.length ? res.data : dummyProjects);
       } catch (error) {
         console.error("Error fetching projects:", error.response?.data || error.message);
-        setProjects(dummyProjects); // fallback to dummy if error
+        setProjects(dummyProjects);
       } finally {
         setLoading(false);
       }
     };
-
     fetchProjects();
   }, []);
 
-  if (loading) {
-    return <p className="text-center mt-5 fs-5">Loading projects...</p>;
-  }
+  if (loading) return <p className="text-center mt-5 fs-5">Loading projects...</p>;
 
   return (
     <section id="projects" className="projects-section container my-5" aria-label="Projects section">
@@ -265,26 +253,16 @@ const Projects = () => {
           >
             {project.imageUrl && (
               <div className="image-wrapper overflow-hidden rounded-top">
-                <img
-                  src={project.imageUrl}
-                  alt={`Screenshot of ${project.title}`}
-                  loading="lazy"
-                  className="card-img-top project-img"
-                />
+                <img src={project.imageUrl} alt={`Screenshot of ${project.title}`} loading="lazy" className="card-img-top project-img" />
               </div>
             )}
-
             <div className="card-body d-flex flex-column">
               <h3 className="project-title card-title fs-3 fw-semibold text-primary">{project.title}</h3>
-              <p className="project-description text-secondary flex-grow-1" style={{ minHeight: "3.5rem" }}>
-                {project.description}
-              </p>
+              <p className="project-description text-secondary flex-grow-1" style={{ minHeight: "3.5rem" }}>{project.description}</p>
 
               <div className="project-tech mb-3" aria-label="Technologies used">
                 {(project.technologies ?? []).map((tech, idx) => (
-                  <span key={idx} className="badge tech-badge me-2 mb-2" aria-label={`Technology: ${tech}`}>
-                    {tech}
-                  </span>
+                  <span key={idx} className="badge tech-badge me-2 mb-2" aria-label={`Technology: ${tech}`}>{tech}</span>
                 ))}
               </div>
 
@@ -302,24 +280,12 @@ const Projects = () => {
 
             <footer className="project-footer card-footer d-flex justify-content-start gap-3 flex-wrap">
               {project.liveUrl && (
-                <a
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-success btn-sm d-flex align-items-center gap-1 shadow-sm btn-gradient"
-                  aria-label={`Live or Demo of ${project.title}`}
-                >
+                <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="btn btn-success btn-sm d-flex align-items-center gap-1 shadow-sm btn-gradient" aria-label={`Live or Demo of ${project.title}`}>
                   <Globe size={18} /> Live Demo
                 </a>
               )}
               {project.githubUrl && (
-                <a
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-dark btn-sm d-flex align-items-center gap-1 shadow-sm btn-gradient"
-                  aria-label={`GitHub repository of ${project.title}`}
-                >
+                <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="btn btn-dark btn-sm d-flex align-items-center gap-1 shadow-sm btn-gradient" aria-label={`GitHub repository of ${project.title}`}>
                   <Github size={18} /> GitHub
                 </a>
               )}

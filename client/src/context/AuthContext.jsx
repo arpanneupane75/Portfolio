@@ -16,7 +16,7 @@ export const AuthProvider = ({ children }) => {
   const fetchUser = useCallback(async () => {
     try {
       // Fixed double slash in URL here
-      const response = await axios.get('http://localhost:5001/api/auth/user');
+      const response = await axios.get('https://portfolio-r436.onrender.com/api/auth/user');
       setUser(response.data.user);
     } catch (error) {
       logout(); // Token invalid or expired, clear auth state
@@ -40,7 +40,7 @@ export const AuthProvider = ({ children }) => {
   const login = async (email, password) => {
     try {
       const response = await axios.post(
-        'http://localhost:5001/api/auth/login',
+        'https://portfolio-r436.onrender.com/api/auth/login',
         { email, password }
       );
 

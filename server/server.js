@@ -86,8 +86,8 @@ app.use(express.json());
 // CORS setup
 const corsOptions = {
   origin: [
-    'https://portfolio-tjxnhnyee-arpan-neupanes-projects-676ecedb.vercel.app/',
-    'https://www.arpanneupane75.com.np/'
+    'https://portfolio-tjxnhnyee-arpan-neupanes-projects-676ecedb.vercel.app',
+    'https://www.arpanneupane75.com.np'
   ],
   credentials: true,
 };

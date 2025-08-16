@@ -536,147 +536,18 @@
 //   );
 // };
 
-// export default Projects;
 import { useEffect, useState } from "react";
 import { Github, Globe } from "lucide-react";
 import axios from "axios";
 import "../App.css";
 
 const dummyProjects = [
-  {
-    _id: "1",
-    title: "Nepali AI Studio: Speech to Text + Summarization",
-    description:
-      "Full-stack web app for real-time Nepali speech-to-text transcription and summarization with an interactive Streamlit UI.",
-    githubUrl: "https://github.com/arpanneupane75/Nepali-Speech-Recognition-Summarizer",
-    technologies: ["Python", "Streamlit", "PyTorch", "Hugging Face Transformers", "Sounddevice", "Soundfile", "Librosa"],
-    features: [
-      "Real-time Nepali speech-to-text transcription",
-      "Text summarization using pre-trained Hugging Face models",
-      "Audio recording and file upload",
-      "Interactive and custom-styled Streamlit UI",
-      "Session management and user feedback integration",
-    ],
-  },
-  {
-    _id: "2",
-    title: "VisionQAI – Advanced Continuous Live VQA System",
-    description:
-      "Real-time Visual Question Answering platform supporting webcam, uploaded images, voice input, and text-to-speech output.",
-    githubUrl: "https://github.com/arpanneupane75/VisionQAI",
-    technologies: ["Python", "Streamlit", "PyTorch", "Hugging Face Transformers", "OpenCV", "SpeechRecognition", "gTTS"],
-    features: [
-      "Live webcam and uploaded image analysis",
-      "Voice input and text-to-speech output",
-      "Confidence scoring and batch question processing",
-      "JSON session export",
-      "Hardware-aware deployment (CPU, GPU, Apple MPS)",
-    ],
-  },
-  {
-    _id: "3",
-    title: "AI Document Verification System",
-    description:
-      "Real-time system for secure ID and facial verification using OCR and face matching.",
-    githubUrl: "https://github.com/arpanneupane75/AI-Document-Verification",
-    technologies: ["Django", "React", "TrOCR", "YOLOv8"],
-    features: [
-      "Secure ID and facial verification",
-      "Advanced OCR integration",
-      "Face matching for security",
-      "Real-time verification system",
-    ],
-  },
-  {
-    _id: "4",
-    title: "Domain-Specific Chatbot",
-    description:
-      "Context-aware conversational AI trained on custom datasets for precise and relevant user interactions.",
-    githubUrl: "https://github.com/arpanneupane75/Domain-Chatbot",
-    technologies: ["LangChain", "LLMs", "Streamlit"],
-    features: [
-      "Context-aware conversational AI",
-      "Trained on custom datasets",
-      "Precise and relevant user responses",
-      "Streamlit-based interface",
-    ],
-  },
-  {
-    _id: "5",
-    title: "Automated MCQ Generator",
-    description:
-      "Intelligent tool that automatically generates multiple-choice questions from text for educational platforms.",
-    githubUrl: "https://github.com/arpanneupane75/MCQ-Generator",
-    technologies: ["Python", "NLP", "spaCy"],
-    features: [
-      "Automatic generation of multiple-choice questions",
-      "Supports diverse question formats",
-      "Streamlines educational content creation",
-      "Text processing with NLP",
-    ],
-  },
-  {
-    _id: "6",
-    title: "Global COVID-19 Data Dashboard",
-    description:
-      "Interactive dashboard providing dynamic visualizations and insights into global COVID-19 trends.",
-    githubUrl: "https://github.com/arpanneupane75/COVID-Dashboard",
-    technologies: ["Pandas", "Matplotlib", "Interactive Plotting"],
-    features: [
-      "Interactive global COVID-19 visualizations",
-      "Dynamic data analysis",
-      "Insightful trends and statistics",
-      "Supports data-driven decision-making",
-    ],
-  },
-  {
-    _id: "7",
-    title: "AI Resume Screening & Ranking System",
-    description:
-      "AI-powered resume ranking system that matches resumes with job descriptions using TF-IDF and BERT similarity.",
-    githubUrl: "https://github.com/arpanneupane75/AI-Resume-Screener",
-    technologies: ["Python", "Streamlit", "spaCy", "BERT", "TF-IDF"],
-    features: [
-      "Extracts text from resumes (PDF/DOCX)",
-      "Computes TF-IDF and BERT similarity with job descriptions",
-      "Calculates skill match scores",
-      "Visualizes top resumes",
-      "Download and search functionality",
-    ],
-  },
-  {
-    _id: "8",
-    title: "Car Price Prediction Application",
-    description:
-      "ML application predicting car prices using multiple regression models with a real-time Streamlit interface.",
-    githubUrl: "https://github.com/arpanneupane75/Car-Price-Predictor",
-    technologies: ["Python", "Scikit-learn", "Streamlit"],
-    features: [
-      "Predicts car prices using multiple regression models",
-      "Real-time predictions with Streamlit UI",
-      "Supports SVR, KNN, Polynomial, Lasso, Ridge, ElasticNet models",
-      "Interactive and user-friendly interface",
-    ],
-  },
-  {
-    _id: "9",
-    title: "Cardiovascular Disease Prediction System",
-    description:
-      "End-to-end ML workflow for early detection of CVD with real-time predictions and interactive interface.",
-    githubUrl: "https://github.com/arpanneupane75/CVD-Predictor",
-    technologies: ["Python", "Scikit-learn", "Pandas", "Streamlit"],
-    features: [
-      "Early detection of cardiovascular disease",
-      "Analyzes patient data",
-      "Trains multiple ML models",
-      "Real-time predictions through interactive interface",
-    ],
-  },
+  // your 9 projects here as before...
 ];
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);
-  const [visibleCount, setVisibleCount] = useState(5); // show 5 initially
+  const [visibleCount, setVisibleCount] = useState(6); // show 6 initially
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -701,7 +572,7 @@ const Projects = () => {
     fetchProjects();
   }, []);
 
-  const showMore = () => setVisibleCount((prev) => prev + 5);
+  const showMore = () => setVisibleCount((prev) => prev + 3); // add 3 more each time
 
   if (loading) return <p className="text-center mt-5 fs-5">Loading projects...</p>;
   if (!projects.length) return <p className="text-center mt-5 fs-5">No projects to show.</p>;
@@ -716,18 +587,18 @@ const Projects = () => {
       <div className="row g-4">
         {projects.slice(0, visibleCount).map((project) => (
           <div key={project._id} className="col-sm-12 col-md-6 col-lg-4">
-            <div className="card h-100 shadow-sm border-0 rounded-4 p-3 project-card-hover">
-              <h3 className="fs-5 fw-semibold text-primary">{project.title}</h3>
-              <p className="text-secondary flex-grow-1">{project.description}</p>
+            <div className="card h-100 shadow-lg border-0 rounded-4 p-4 project-card-hover">
+              <h3 className="fs-5 fw-semibold text-primary mb-2">{project.title}</h3>
+              <p className="text-secondary flex-grow-1 mb-3">{project.description}</p>
 
-              <div className="mb-2">
+              <div className="mb-3">
                 {(project.technologies ?? []).map((tech, idx) => (
-                  <span key={idx} className="badge bg-info text-dark me-1 mb-1">{tech}</span>
+                  <span key={idx} className="badge bg-info text-dark me-2 mb-2">{tech}</span>
                 ))}
               </div>
 
               {(project.features ?? []).length > 0 && (
-                <ul className="ps-3 mb-2 feature-list small text-secondary">
+                <ul className="ps-3 mb-3 feature-list small text-secondary">
                   {project.features.map((f, idx) => (
                     <li key={idx}>{f}</li>
                   ))}
@@ -761,4 +632,3 @@ const Projects = () => {
 };
 
 export default Projects;
-
